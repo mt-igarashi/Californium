@@ -1,0 +1,2 @@
+■クライアント実行方法
+CaliforniumClient.javaを右クリックしてRun Javaを選択

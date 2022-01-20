@@ -23,6 +23,11 @@ public class CaliforniumServerResource extends CoapResource {
 
     @Override
     public void handleGET(CoapExchange exchange) {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         exchange.respond("hello");
     }
 }

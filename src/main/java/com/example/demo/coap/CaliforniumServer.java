@@ -41,7 +41,9 @@ public class CaliforniumServer extends CoapServer {
                 InetSocketAddress bindToAddress = new InetSocketAddress(addr, COAP_PORT);
                 CoapEndpoint.Builder builder = new CoapEndpoint.Builder();
 				builder.setInetSocketAddress(bindToAddress);
-				builder.setConfiguration(Configuration.getStandard());
+                Configuration config = Configuration.getStandard();
+                config.set(CoapConfig.PROTOCOL_STAGE_THREAD_COUNT, 20);
+				builder.setConfiguration(config);
 				addEndpoint(builder.build());
             }
         }

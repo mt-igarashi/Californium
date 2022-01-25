@@ -42,7 +42,9 @@ public class CaliforniumServer extends CoapServer {
                 CoapEndpoint.Builder builder = new CoapEndpoint.Builder();
 				builder.setInetSocketAddress(bindToAddress);
                 Configuration config = Configuration.getStandard();
-                config.set(CoapConfig.PROTOCOL_STAGE_THREAD_COUNT, 20);
+                config.set(CoapConfig.PROTOCOL_STAGE_THREAD_COUNT, 100);
+                config.set(UdpConfig.UDP_RECEIVER_THREAD_COUNT, 100);
+                config.set(UdpConfig.UDP_SENDER_THREAD_COUNT, 100);
 				builder.setConfiguration(config);
 				addEndpoint(builder.build());
             }
